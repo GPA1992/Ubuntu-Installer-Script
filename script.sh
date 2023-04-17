@@ -243,6 +243,15 @@ else
     echo "DOCKER-COMPOSE já está instalado!"
 fi
 
+# Verificar se o Yarn já está instalado
+if [ -x "$(command -v yarn)" ]; then
+  echo "Yarn já está instalado"
+else
+  # Adicionar o repositório Yarn
+  npm install --global yarn
+  echo "Yarn instalado com sucesso"
+fi
+
 
 echo "Todos os softwares foram instalados com sucesso!"
 

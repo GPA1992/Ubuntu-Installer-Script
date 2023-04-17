@@ -20,17 +20,21 @@ ou
 
 ### Lista de Softwares e pacotes
 
-- gdebi
-- zoom
-- snap
-- slack
-- VScode
-- Google Chrome
-- Discord
-- Nodejs
-- Docker
-- Docker-Compose
-- Venv
+- GDEBI-CORE
+- ZOOM
+- SNAP
+- SLACK
+- VSCODE
+- GOOGLE CHROME
+- DISCORD
+- NODE.JS
+- DOCKER
+- DOCKER COMPOSE
+- VENV
+- SPOTIFY
+- CURL
+- GIT
+- YARN
 
 ### Aviso
 

@@ -99,3 +99,11 @@ if [ -x "$(command -v git)" ]; then
 else
   echo "GIT: ❌ não instalado"
 fi
+
+
+# Verificar se o Yarn já está instalado
+if [ -x "$(command -v yarn)" ]; then
+  echo "YARN: ✔️ $(yarn --version)"
+else
+  echo "YARN: ❌ não instalado"
+fi

@@ -34,6 +34,6 @@ ou
 
 ### Aviso
 
-Este script foi testado apenas em sistemas operacionais Debian. É recomendável fazer backup de seus dados antes de executar o script. O autor do script não se responsabiliza por quaisquer danos causados ao sistema. Use por sua própria conta e risco.
+Este script foi testado apenas em sistemas operacionais Debian. É recomendável fazer backup de seus dados antes de executar o script. O autor do script não se responsabiliza por quaisquer danos causados ao sistema.
 
 #### Fique a vontade para criar uma branch e contribuir com o repositório

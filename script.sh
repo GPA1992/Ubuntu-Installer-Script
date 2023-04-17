@@ -9,6 +9,14 @@ fi
 
 
 
+
+echo "Atualizando repositório e fazendo atualização do sistema"
+apt_update(){
+  sudo apt update && sudo apt dist-upgrade -y
+}
+apt_update
+
+
 # Verifica se o gdebi esta instalado
 if [ $(dpkg-query -W -f='${Status}' gdebi-core 2>/dev/null | grep -c "ok installed") -eq 1 ];
 then

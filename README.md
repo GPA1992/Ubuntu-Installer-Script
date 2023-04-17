@@ -1,4 +1,4 @@
-## Script de instalação pós formatação Debian
+## Unbuntu Installer Script
 
 Este repositório contém dois arquivos úteis para quem precisa instalar softwares em uma nova instalação do sistema operacional Debian. O arquivo script.sh é responsável por atualizar o sistema e instalar uma lista de softwares pré-definidos, enquanto o arquivo verify.sh verifica se os softwares foram instalados corretamente.
 

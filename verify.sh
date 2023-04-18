@@ -71,11 +71,11 @@ else
 fi
 
 
-# Verifica se o venv esta instalado
-if [ -x "$(command -v python3 -m venv)" ]; then
-    echo "VENV: ✅ $(dpkg-query --show --showformat='${Version}\n' python3-venv)"      
+# Verifica se o Python esta instalado
+if [ -x "$(command -v python3)" ]; then
+    echo "PYTHON: ✅ $(dpkg-query --show --showformat='${Version}\n' python3)"      
 else
-    echo "VENV: ❌ não instalado"
+    echo "PYTHON: ❌ não instalado"
 fi
 
 #verifica se o Spotify esta instalado

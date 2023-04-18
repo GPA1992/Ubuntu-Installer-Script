@@ -87,15 +87,16 @@ fi
 
 
 
-# Instalação do venv
-if ! [ -x "$(command -v python3 -m venv)" ]; then
-    echo "Instalando o venv..."
-    sudo apt install python3-venv -y
-    echo "Venv instalado com sucesso"
+# Instalação do Python
+if ! [ -x "$(command -v python3)" ]; then
+    echo "Instalando o python..."
+    sudo apt install python3 -y
+    sudo apt install python3-venv -y    
+    echo "Python instalado com sucesso"
     dpkg-query --show --showformat='${Version}\n' python3-venv
 
 else
-    echo "VENV ja instalado"
+    echo "PYTHON ja instalado"
 fi
 
 

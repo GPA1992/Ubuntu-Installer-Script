@@ -13,6 +13,7 @@ fi
 echo "Atualizando repositório e fazendo atualização do sistema"
 apt_update(){
   sudo apt update && sudo apt dist-upgrade -y
+  wait
 }
 apt_update
 
@@ -26,6 +27,9 @@ else
     echo "Installing gdebi-core..."
     sudo apt-get update
     sudo apt-get install -y gdebi-core
+    wait
+    echo "|------------------------------------------------------------|"
+    echo "GDEBI instalado"
 fi
 
 
@@ -37,6 +41,9 @@ then
     echo "Instalando snapd..."
     sudo apt-get update
     sudo apt-get install snapd -y
+    wait
+    echo "|------------------------------------------------------------|"
+    echo "snap instalado com sucesso"
 else
     echo "Snap já está instalado"
 fi
@@ -53,8 +60,9 @@ then
     sudo apt install curl -y
 
     # Verifica a versão instalada
-    echo "curl instalado com sucesso na versão:"
-    curl --version | head -n 1
+    wait
+    echo "|------------------------------------------------------------|"
+    echo "curl instalado com sucesso"
 else
     echo "CURL já está instalado"
 fi
@@ -69,6 +77,9 @@ else
   # Instalar o git
   sudo apt-get update
   sudo apt-get install git
+  wait
+  echo "|------------------------------------------------------------|"
+  echo "git instalado com sucesso"
 fi
 
 
@@ -82,6 +93,10 @@ else
   wget https://zoom.us/client/5.14.2.2046/zoom_amd64.deb
   sudo gdebi -n zoom_amd64.deb
   rm zoom_amd64.deb
+  wait
+  echo "|------------------------------------------------------------|"
+  echo "zoom instalado com sucesso"
+  
 fi
 
 
@@ -89,11 +104,13 @@ fi
 
 # Instalação do Python
 if ! [ -x "$(command -v python3)" ]; then
-    echo "Instalando o python..."
-    sudo apt install python3 -y
-    sudo apt install python3-venv -y    
-    echo "Python instalado com sucesso"
-    dpkg-query --show --showformat='${Version}\n' python3-venv
+  echo "Instalando o python..."
+  sudo apt install python3 -y
+  sudo apt install python3-venv -y    
+  wait
+  echo "|------------------------------------------------------------|"
+  echo "PYTHON instalado com sucesso"
+
 
 else
     echo "PYTHON ja instalado"
@@ -108,6 +125,10 @@ if snap list | grep -q "slack"; then
 else
     echo "Instalando o Slack..."
     sudo snap install slack
+  wait
+  echo "|------------------------------------------------------------|"
+  echo "SLACK instalado com sucesso"
+
 fi
 
 
@@ -115,10 +136,14 @@ fi
 
 #verifica se o Spotify esta instalado
 if ! [ -x "$(command -v spotify)" ]; then
-    echo "Instalando Spotify..."
-    curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
-    echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-    sudo apt-get update && sudo apt-get install spotify-client -y
+  echo "Instalando Spotify..."
+  curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+  echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+  sudo apt-get update && sudo apt-get install spotify-client -y
+  wait
+  echo "|------------------------------------------------------------|"
+  echo "Spotify instalado com sucesso"
+
 else
     echo "SPOTIFY ja instalado"
 fi
@@ -135,6 +160,9 @@ if ! command -v code &> /dev/null; then
   sudo apt update
   sudo apt install -y code
   rm microsoft.asc.gpg
+  wait
+  echo "|------------------------------------------------------------|"
+  echo "VSCODE instalado com sucesso"
 else
   echo "VSCODE já está instalado"
 fi
@@ -149,6 +177,10 @@ if ! command -v google-chrome &> /dev/null; then
   sudo dpkg -i google-chrome-stable_current_amd64.deb
   sudo apt --fix-broken install -y
   rm google-chrome-stable_current_amd64.deb
+  wait
+  echo "|------------------------------------------------------------|"
+  echo "CHROME instalado com sucesso"
+
 else
   echo "CHROME já está instalado"
 fi
@@ -163,6 +195,10 @@ if ! command -v discord &> /dev/null; then
   sudo dpkg -i discord.deb
   sudo apt --fix-broken install -y
   rm discord.deb
+  wait
+  echo "|------------------------------------------------------------|"
+  echo "DISCORD instalado com sucesso"
+
 else
   echo "DISCORD já está instalado"
 fi
@@ -173,14 +209,16 @@ fi
 # Verifica se o Node.js já está instalado
 if ! command -v node &> /dev/null
 then
-    echo "Node.js não encontrado, iniciando instalação..."
-    sudo apt-get remove libnode72:amd64
-    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
-    sudo apt-get install -y nodejs
+  echo "Node.js não encontrado, iniciando instalação..."
+  sudo apt-get remove libnode72:amd64
+  curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
+  sudo apt-get install -y nodejs
 
     # Verifica a versão instalada
-    echo "Node.js instalado com sucesso na versão:"
-    node -v
+  wait
+  echo "|------------------------------------------------------------|"
+  echo "NODE instalado com sucesso"
+
 else
     echo "NODE já está instalado"
 fi
@@ -224,7 +262,10 @@ if ! [ -x "$(command -v docker)" ]; then
     # Inicie o Daemon do Docker
     sudo systemctl start docker
     sudo systemctl enable docker
-    echo "Docker instalado com sucesso!"
+  wait
+  echo "|------------------------------------------------------------|"
+  echo "DOCKER instalado com sucesso"
+
 else
     echo "DOCKER já está instalado!"
 fi
@@ -239,7 +280,10 @@ if ! [ -x "$(command -v docker-compose)" ]; then
     sudo curl -L "https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
 
-    echo "Docker-Compose instalado com sucesso!"
+  wait
+  echo "|------------------------------------------------------------|"
+  echo "DOCKER-COMPOSE instalado com sucesso"
+
 else
     echo "DOCKER-COMPOSE já está instalado!"
 fi
@@ -250,7 +294,10 @@ if [ -x "$(command -v yarn)" ]; then
 else
   # Adicionar o repositório Yarn
   npm install --global yarn
-  echo "Yarn instalado com sucesso"
+  wait
+  echo "|------------------------------------------------------------|"
+  echo "YARN instalado com sucesso"
+
 fi
 
 

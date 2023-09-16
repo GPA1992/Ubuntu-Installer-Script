@@ -35,18 +35,6 @@ fi
 
 
 
-# Verifica se o snap esta instalado
-if ! command -v snap &> /dev/null
-then
-    echo "Instalando snapd..."
-    sudo apt-get update
-    sudo apt-get install snapd -y
-    wait
-    echo "|------------------------------------------------------------|"
-    echo "snap instalado com sucesso"
-else
-    echo "Snap já está instalado"
-fi
 
 
 
@@ -80,23 +68,6 @@ else
   wait
   echo "|------------------------------------------------------------|"
   echo "git instalado com sucesso"
-fi
-
-
-
-
-# Verificar se o Zoom já está instalado
-if [ -x "$(command -v zoom)" ]; then
-  echo "ZOOM já está instalado"
-else
-  # Instalar o Zoom
-  wget https://zoom.us/client/5.14.2.2046/zoom_amd64.deb
-  sudo gdebi -n zoom_amd64.deb
-  rm zoom_amd64.deb
-  wait
-  echo "|------------------------------------------------------------|"
-  echo "zoom instalado com sucesso"
-  
 fi
 
 
